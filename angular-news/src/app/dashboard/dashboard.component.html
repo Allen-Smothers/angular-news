@@ -1,0 +1,103 @@
+    <!-- <h3>Top Heroes</h3>
+    <div class="grid grid-pad">
+        <a *ngFor="let hero of heroes" class="co-1-4" routerLink="/detail/{{hero.id}}">
+            <div class="module hero">
+                <h4>{{hero.name}}</h4>
+            </div>
+        </a>
+    </div> -->
+<!-- <div *ngFor="let feature of featured">
+    <h4>{{feature.description}}</h4> 
+    <div *ngFor="let article of feature.articles">
+        <div>{{article.headLine}}</div>     
+        <div>{{article.location}}</div>     
+    </div>
+</div>  
+
+<div *ngFor="let feature of aside">
+    <h4>{{feature.description}}</h4> 
+    <div *ngFor="let article of feature.articles">
+        <div>{{article.headLine}}</div>     
+        <div>{{article.location}}</div>     
+    </div>
+</div> 
+ -->
+
+ 
+
+<!-- <app-hero-search></app-hero-search> -->
+<div id="root">
+<div class="App">
+  <div class="container">
+    <app-banner></app-banner>
+
+    <div class="flex-row">
+         <!-- Col left -->
+        <div class="flex-column" *ngFor="let feature of aside" >
+            <aside >
+                <article *ngFor="let article of feature.articles; let i = index" [attr.data-index]="i" [class.add-hr]="i > 0">
+                    <h5 ><a routerLink="/article/{{article.id}}">{{article.headLine}}</a></h5>
+                    <span class="snippet"> {{article.snippet}}</span>
+                </article>
+            </aside>
+        </div>
+        <!-- Center Column-->
+        <div class="flex-double-column" *ngFor="let feature of main" >
+            <main>
+              <article *ngFor="let article of feature.articles; let i = index" [attr.data-index]="i" [class.main-top]="i == 0">
+                <video *ngIf="article.hasVideoPlaceholder" width="100%" controls poster="/assets/images/ls1-E36.jpg"> </video>  
+                  <h5><a routerLink="/article/{{article.id}}">{{article.headLine}}</a></h5>
+                  <span class="location"><b>{{article.location}}</b></span>    
+                  <span class="snippet">{{article.snippet}} </span>  
+                </article>
+              </main>
+            </div>
+            <!-- Col Right -->
+          <div  class="flex-double-column right-column">
+            <div class="flex-row" >
+              <div id="opin-header" class="flex-double-column">
+              <div id="travel-hr">
+                <label>The Opinion Pages</label>  
+                </div>  
+              </div>
+            </div>
+            <div *ngFor="let feature of opinion" class="flex-row rt-top-inner"> 
+              <div *ngFor="let article of feature.articles; let i = index" 
+              [attr.data-index]="i"  class="flex-column">
+                <article>
+                    <h5><a routerLink="/article/{{article.id}}">{{article.headLine}}</a></h5>
+                      <span class="snippet">{{article.snippet}}</span>
+                  </article>
+              </div>    
+            </div>
+            <div class="flex-row">
+              <div class="flex-double-column">
+              <div id="travel-hr">
+                <label>Travel</label>
+                <i *ngFor='let in of counter(100) ;let i = index'
+                  class="fa fa-angle-right fa-stack-xs">
+                </i> 
+                </div>  
+              </div>
+            </div>
+            <div *ngFor="let feature of travel"  class="flex-row rt-bottom-inner">
+              <div *ngFor="let article of feature.articles; let i = index" 
+              [attr.data-index]="i" class="flex-column">
+                <article>
+                    <h5><a routerLink="/article/{{article.id}}">{{article.headLine}}</a></h5>
+                      <div >
+                        <img src="/assets/images/Another997.jpg" alt="997 C2S"/>
+                      </div>
+                      <div *ngIf="article.numberOfImages > 1">
+                      <img src="/assets/images/boston-green.jpg" alt="E36" />
+                      </div>
+                      <span *ngIf="i != 0" class="snippet">{{article.snippet}}</span>
+                  </article>
+              </div>
+            </div>
+          </div>
+    </div>
+</div>
+</div>
+</div>
+

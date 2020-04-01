@@ -1,0 +1,12 @@
+
+<nav>
+<div class="row">
+    <div class="col-10 offset-1" > 
+    <div id=nav class="justify-content-center nav"  >
+        <a routerLink="/category/{{cat.id}}" class="nav-link" *ngFor="let cat of categories" >
+        <span class="inactive">{{cat.displayName}}</span> 
+        </a>
+    </div>
+    </div>
+</div>
+</nav>

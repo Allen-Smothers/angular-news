@@ -1,0 +1,19 @@
+<div class="row">
+    <div class="col-12" >  
+        <section [ngClass]="showCont ? 'banner contshow' : 'banner conthide'">
+            <div class="cta" >  
+                <span (click)="toggleBanner()" >
+                    <span>Click to expand</span>
+                    <i id="fa-cta" class="fa fa-angle-down fa-2x"></i> 
+                    
+                </span>
+            </div>
+            <div *ngIf="banners[0]" id="preview">
+                {{banners[0].message}}  
+            </div>
+            <div *ngIf="banners[1]" id="content" [ngClass]="showCont ? 'cont-opac' : 'cont-clear'">
+              {{banners[1].message}}
+            </div>
+        </section>
+    </div>
+</div>

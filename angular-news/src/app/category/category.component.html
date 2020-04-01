@@ -1,0 +1,21 @@
+
+<div class="container sec-detail">
+    <div class="flex-row">
+        <div *ngFor="let article of articles; let i = index"  
+        [class.flex-column]="true" 
+        [class.aside]="i > 0" > 
+            <article>
+                <h5>
+                <a routerLink="/article/{{article.id}}">{{article.headLine}}</a>
+                </h5>
+                <!-- {images} -->
+                <img *ngFor='let in of counter(article.numberOfImages)'
+                src="/assets/images/Another997.jpg" />
+                <span class="location">{{article.location}}</span>      
+                <span class="snippet">
+                {{article.snippet}}
+                </span>
+            </article>
+        </div>
+    </div>
+</div>
